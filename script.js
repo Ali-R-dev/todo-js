@@ -1,20 +1,28 @@
 
 
-let tasks=["abcd","def"]
+let tasks=['Task : study javascript 2']
 
 let myContent=document.querySelector(".content")
 
 
 function refreshData(){
+
     myContent.innerHTML=''
-    let str=''
-    tasks.forEach((x,i)=>
-        str+=`<div class="card-task"> 
-        <p>${x}</p>
-        <button onclick="deleteTask(${i})">DEL</button>
-        </div>`
-    )
-    myContent.innerHTML=str
+    tasks.forEach((x,i)=>{
+        let cardDiv=document.createElement('div')
+        cardDiv.classList.add('card-task')
+
+        let cardText=document.createElement('p')
+        cardText.textContent=x
+
+        let cardRemoveBtn=document.createElement('button')
+        cardRemoveBtn.textContent='Del'
+        cardRemoveBtn.onclick=()=>deleteTask(i)
+
+        cardDiv.appendChild(cardText)
+        cardDiv.appendChild(cardRemoveBtn)
+        myContent.appendChild(cardDiv)
+    } )
 }
 
 document.querySelector("form").addEventListener('submit',
@@ -30,7 +38,3 @@ function deleteTask(index){
     refreshData();
 }
 refreshData()
-
-
-// but.addEventListener('click', function (event)
-//  { event.target.parentElement.parentElement.removeChild(event.target.parentElement); });

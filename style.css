@@ -1,6 +1,6 @@
 
 body{
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-family: Roboto, Helvetica Neue, sans-serif;
     font-size: 14px;
     margin: 0;
     padding: 0;
@@ -20,9 +20,7 @@ textarea{
 /* ------------------------------------ */
 header{
     width: 100%;
-    /* box-sizing: border-box; */
     background-color: rgb(140, 93, 184);
-    /* border: 0px solid black; */
 }
 header h1 {
     margin: 0;
@@ -51,6 +49,8 @@ main nav form {
     flex-direction: column;
     align-items: center;
 }
+
+/* ---------------------------------- */
 
 main .content {
     box-sizing: border-box;
