@@ -1,11 +1,12 @@
-
-
-let tasks=[
-    ['Task : study javascript 2','Stat studying dom manupulation as part of JS module 2'],
-    ['Task : study javascript 2','Stat studying dom manupulation as part of JS module 2'],
-    ['Task : study javascript 2','Stat studying dom manupulation as part of JS module 2'],
-    ['Task : study javascript 2','Stat studying dom manupulation as part of JS module 2'],
-    ['Task : study javascript 2','Stat studying dom manupulation as part of JS module 2'],
+//----------------------------------
+// replaced:
+//   [[],[]] => [{},{}]
+//   tasks => taskList
+//-----------------------------------
+let taskList=[
+    {title:'Task : study javascript 1', desc:'Stat studying basic operations as part of JS module 1'},
+    {title:'Task : study javascript 2', desc:'Stat studying dom manupulation as part of JS module 2'},
+    {title:'Task : study javascript 3', desc:'Stat studying advance topics as part of JS module 3'},
 ]
 
 let myContent=document.querySelector(".container-cards")
@@ -14,17 +15,17 @@ let myContent=document.querySelector(".container-cards")
 function refreshData(){
 
     myContent.innerHTML=''
-    tasks.forEach((x,i)=>{
+    taskList.forEach((x,i)=>{
         let cardDiv=document.createElement('div')
         cardDiv.classList.add('card-task')
 
         let txtTitle=document.createElement('p')
         txtTitle.classList.add('tskTitle')
-        txtTitle.textContent=x[0]
+        txtTitle.textContent=x.title
 
         let txtDesc=document.createElement('p')
         txtDesc.classList.add('tskDesc')
-        txtDesc.textContent=x[1]
+        txtDesc.textContent=x.desc
 
         let cardRemoveBtn=document.createElement('button')
         cardRemoveBtn.classList.add('tskBtnDel')
@@ -45,13 +46,17 @@ function refreshData(){
 document.querySelector("form").addEventListener('submit',
     e=>{
     e.preventDefault()
-    tasks.push([document.querySelector('#txtTitle').value,document.querySelector('#txtDesc').value]);
+    taskList.push(
+        {
+            title:document.querySelector('#txtTitle').value,
+            desc:document.querySelector('#txtDesc').value
+        });
     document.querySelector("#mainForm").reset()
    refreshData()
 })
 
 function deleteTask(index){
-    tasks.splice(index, 1);
+    taskList.splice(index, 1);
     refreshData();
 }
 refreshData()
