@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div id="container">
+        <nav>
+            
+            <div id="nav-header">
+                <h3 style="display: inline-block;">Menu</h3>
+                <button id="btn-menu" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" >
+                        <path d="M4 6H20M4 12H20M4 18H20" stroke="#6c6868" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </button>
+            </div>
+
+            <div class="search-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="#6c6868" width="20" height="20" viewBox="0 0 30 30">
+                    <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
+                </svg>
+                <input type="text" id="input-search" placeholder="Search"/>
+            </div>
+
+            <div class="nav-item" id="nav-tasks">
+                <h6>TASKS</h6>
+                <ul>
+                    <li>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70711 4.29289C5.31658 3.90237 4.68342 3.90237 4.29289 4.29289C3.90237 4.68342 3.90237 5.31658 4.29289 5.70711L10.5858 12L4.29289 18.2929C3.90237 18.6834 3.90237 19.3166 4.29289 19.7071C4.68342 20.0976 5.31658 20.0976 5.70711 19.7071L12.7071 12.7071C13.0976 12.3166 13.0976 11.6834 12.7071 11.2929L5.70711 4.29289ZM12.7071 4.29289C12.3166 3.90237 11.6834 3.90237 11.2929 4.29289C10.9024 4.68342 10.9024 5.31658 11.2929 5.70711L17.5858 12L11.2929 18.2929C10.9024 18.6834 10.9024 19.3166 11.2929 19.7071C11.6834 20.0976 12.3166 20.0976 12.7071 19.7071L19.7071 12.7071C20.0976 12.3166 20.0976 11.6834 19.7071 11.2929L12.7071 4.29289Z" fill="#6c6868"/>
+                            </svg>
+                            Upcoming
+                        </span>
+                        <span>--0</span>
+                    </li>
+                    <li>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none">
+                                <path d="M11 6L21 6.00072M11 12L21 12.0007M11 18L21 18.0007M3 11.9444L4.53846 13.5L8 10M3 5.94444L4.53846 7.5L8 4M4.5 18H4.51M5 18C5 18.2761 4.77614 18.5 4.5 18.5C4.22386 18.5 4 18.2761 4 18C4 17.7239 4.22386 17.5 4.5 17.5C4.77614 17.5 5 17.7239 5 18Z" stroke="#6c6868" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Today
+                        </span>
+                        <span>--0</span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <header><h1>Sticky Wall</h1></header>
+            <div id="container-inner-main">
+                <h5 id="no-of-tasks"></h5>
+                <div id="list-tasks">             
+                    <div class="card-task" id="card-add-task">
+                        <button id="btn-add">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                <rect width="24" height="24" fill="transparent"/>
+                                <path d="M12 6V18" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 12H18" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        
+                        <form action="">
+                            <input id="new-task-title" type="text" maxlength="25" placeholder="Task title" required/>
+                            <textarea id="new-task-desc" cols="30" rows="7" placeholder="Task details" maxlength="275" required></textarea>
+                            <input id="new-task-date" type="date" required/>
+                            <input id="new-task-time" type="time" required/>
+                            <div class="card-btn-group">
+                                <button type="reset" id="btn-reset">Clear</button>
+                                <button type="button" id="btn-cancel">Cancel</button>
+                                <button type="submit" id="btn-save-task">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+
+</body>
+</html>
